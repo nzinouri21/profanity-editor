@@ -13,7 +13,13 @@ def read_text():
 def check_profanity(text_to_ckeck):
     connection = urllib.urlopen("http://www.wdylike.appspot.com/?q=" + text_to_ckeck)
     output = connection.read()
-    print output
+    if output == "true":
+        print "Profanity Alert!"
+    elif output == "false":
+        print "This document has no curse words!"
+    else:
+        print "Could not scan the document properly."
+    #print output
 
     connection.close()
 
